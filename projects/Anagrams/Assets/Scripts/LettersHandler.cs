@@ -19,7 +19,6 @@ public class LettersHandler : MonoBehaviour
 
     public Text scoreText;
 
-    int score = 0;
 
     HashSet<string> enteredWords = new HashSet<string>();
 
@@ -64,7 +63,7 @@ public class LettersHandler : MonoBehaviour
         input.ActivateInputField();
 
         // initialize score text
-        scoreText.text = score.ToString();
+        scoreText.text = GameData.score.ToString();
 
         // initialize set of english words
         string[] words = wordsFile.text.Split(new[] { '\r', '\n' });
@@ -100,8 +99,8 @@ public class LettersHandler : MonoBehaviour
     {
         if (!enteredWords.Contains(word) && allEnglishWords.Contains(word))
         {
-            score += calcScore(word);
-            scoreText.text = score.ToString();
+            GameData.score += calcScore(word);
+            scoreText.text = GameData.score.ToString();
             enteredWords.Add(word);
         }
         input.text = "";
