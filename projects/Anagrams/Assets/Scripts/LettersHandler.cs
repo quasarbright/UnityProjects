@@ -23,10 +23,11 @@ public class LettersHandler : MonoBehaviour
 
     HashSet<string> enteredWords = new HashSet<string>();
 
-    // Start is called before the first frame update
+    public TextAsset wordsFile;
+    HashSet<string> allEnglishWords = new HashSet<string>();
+
     void Start()
     {
-        // randomize characters on startup
         System.Random rand = new System.Random();
         int count = 0;
         // initialize usable letters randomly
@@ -62,7 +63,23 @@ public class LettersHandler : MonoBehaviour
         input.Select();
         input.ActivateInputField();
 
+        // initialize score text
         scoreText.text = score.ToString();
+
+        // initialize set of english words
+        string[] words = wordsFile.text.Split(new[] { '\r', '\n' });
+        Debug.Log(words[0]);
+        Debug.Log(words[0].Length);
+        foreach (string word in words)
+        {
+            allEnglishWords.Add(word);
+        }
+        foreach (char letter in alphabet)
+        {
+            allEnglishWords.Remove(letter.ToString());
+        }
+        allEnglishWords.Add("a");
+        allEnglishWords.Add("i");
     }
 
     void OnChange()
@@ -81,7 +98,7 @@ public class LettersHandler : MonoBehaviour
 
     void OnEnd()
     {
-        if (!enteredWords.Contains(word))
+        if (!enteredWords.Contains(word) && allEnglishWords.Contains(word))
         {
             score += calcScore(word);
             scoreText.text = score.ToString();
