@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Text))]
 public class Countdown : MonoBehaviour
 {
     Text timerText;
-    
+
+    public UnityEvent OnFinish;
+
     public float duration = 60;// in seconds
     float timeLeft;
     // Start is called before the first frame update
@@ -20,7 +23,15 @@ public class Countdown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeLeft -= Time.deltaTime;
-        timerText.text = timeLeft.ToString("0");
+        float newTimeLeft = timeLeft - Time.deltaTime;
+        if (newTimeLeft >= 0)
+        {
+            timeLeft = newTimeLeft;
+            timerText.text = timeLeft.ToString("0");
+        }
+        else
+        {
+            OnFinish.Invoke();
+        }
     }
 }
