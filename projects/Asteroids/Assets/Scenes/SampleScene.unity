@@ -247,7 +247,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.99
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -538,6 +538,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6190848576681974698, guid: 0a18ff4c1a0228043800b77c030c2db7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 6190848576681974701, guid: 0a18ff4c1a0228043800b77c030c2db7,
         type: 3}
       propertyPath: m_IsTrigger
@@ -553,5 +558,11 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6529615767961950803, guid: 0a18ff4c1a0228043800b77c030c2db7,
+        type: 3}
+      propertyPath: deathParticleSystem
+      value: 
+      objectReference: {fileID: 8423485247484912728, guid: a624346a4f7797d4480359f799e89c97,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a18ff4c1a0228043800b77c030c2db7, type: 3}

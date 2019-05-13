@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour, Death
 {
+    public GameObject deathParticleSystem;
     public void Die()
     {
-        Debug.Log("F mega");
+        Instantiate(deathParticleSystem, transform.position, Quaternion.identity);
     }
 }
