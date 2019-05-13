@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class ScreenWrap : MonoBehaviour
 {
-    Camera cam;
     // Start is called before the first frame update
     float screenWidth;
     float screenHeight;
     void Start()
     {
-        cam = Camera.main;
+        Camera cam = Camera.main;
         // bottom left of the world
         Vector3 dl = cam.ViewportToWorldPoint(new Vector3(0, 0, transform.position.z));
         // top right of the world
