@@ -283,7 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fefe252b2616e4d80d8d1c1eb7a638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextAsteroid: {fileID: 0}
+  nextAsteroidName: 
+  scoreValue: 250
 --- !u!114 &1772303206510553858
 MonoBehaviour:
   m_ObjectHideFlags: 0

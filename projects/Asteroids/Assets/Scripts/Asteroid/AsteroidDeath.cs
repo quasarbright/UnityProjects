@@ -5,6 +5,7 @@ using UnityEngine;
 public class AsteroidDeath : MonoBehaviour, Death
 {
     public string nextAsteroidName;
+    public int scoreValue = 1000;
     public void Die()
     {
         if (nextAsteroidName != null && nextAsteroidName != "")
@@ -13,6 +14,7 @@ public class AsteroidDeath : MonoBehaviour, Death
             objectPooler.SpawnObject(nextAsteroidName, transform.position, Quaternion.identity);
             objectPooler.SpawnObject(nextAsteroidName, transform.position, Quaternion.identity);
         }
+        ScoreData.score += scoreValue;
         gameObject.SetActive(false);
     }
 }

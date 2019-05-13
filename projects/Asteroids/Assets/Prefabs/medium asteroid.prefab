@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextAsteroidName: small asteroid
+  scoreValue: 500
 --- !u!114 &1280139807250741092
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,10 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     public string[] spawnables; // each spawnable is equally likely
 
+    public GameObject player;// don't spawn on the player
+
+    public float minSpawnDistance = 100;
+
     float screenWidth;
     float screenHeight;
 
@@ -34,11 +38,30 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    bool TooCloseToPlayer(Vector2 position)
+    {
+        Vector2 playerPosition = player.transform.position;
+        return Vector2.Distance(position, playerPosition) < minSpawnDistance;
+    }
+
     Vector2 SpawnLocation()
     {
         float x = Random.Range(-screenWidth/2f, screenWidth/2f);
         float y = Random.Range(-screenHeight/2f, screenHeight/2f);
-        return new Vector2(x, y);
+        Vector2 ans = new Vector2(x, y);
+        int attempts = 0;
+        while(TooCloseToPlayer(ans) && attempts < 100)
+        {
+            x = Random.Range(-screenWidth/2f, screenWidth/2f);
+            y = Random.Range(-screenHeight/2f, screenHeight/2f);
+            ans = new Vector2(x, y);
+            attempts++;
+        }
+        if(attempts == 100)
+        {
+            Debug.LogWarning("couldn't spawn");
+        }
+        return ans;
     }
 
     GameObject SpawnAsteroid()
