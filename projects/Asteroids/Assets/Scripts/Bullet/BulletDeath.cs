@@ -6,6 +6,6 @@ public class BulletDeath : MonoBehaviour, Death
 {
     public void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

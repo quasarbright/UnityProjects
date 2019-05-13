@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     public float spawnRate = 1f; // units per second
 
     [SerializeField]
-    public GameObject[] spawnables; // each spawnable is equally likely
+    public string[] spawnables; // each spawnable is equally likely
 
     float screenWidth;
     float screenHeight;
@@ -44,7 +44,7 @@ public class Spawner : MonoBehaviour
     GameObject SpawnAsteroid()
     {
         int index = Random.Range(0, spawnables.Length);
-        GameObject spawnPrefab = spawnables[index];
-        return Instantiate(spawnPrefab, SpawnLocation(), Quaternion.identity);
+        string name = spawnables[index];
+        return ObjectPooler.instance.SpawnObject(name, SpawnLocation(), Quaternion.identity);
     }
 }

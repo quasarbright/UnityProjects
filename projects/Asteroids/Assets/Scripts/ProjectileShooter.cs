@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class ProjectileShooter : MonoBehaviour
 {
-    public GameObject projectilePrefab;
     // Start is called before the first frame update
     public float speed = 20;
     int projectilesQueued = 0;
@@ -29,7 +28,7 @@ public class ProjectileShooter : MonoBehaviour
     {
         while(projectilesQueued > 0)
         {
-            GameObject bullet = Instantiate(projectilePrefab, transform.position, transform.rotation);
+            GameObject bullet = ObjectPooler.instance.SpawnObject("bullet", transform.position, transform.rotation);
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
             if(bulletRb != null)
             {

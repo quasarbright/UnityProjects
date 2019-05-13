@@ -14,6 +14,11 @@ public class Bullet : MonoBehaviour
         death = GetComponent<BulletDeath>();
     }
 
+    void OnEnable()
+    {
+        Start();
+    }
+
     void Update()
     {
         if(timeLeft <= 0)

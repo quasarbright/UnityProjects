@@ -15,6 +15,11 @@ public class AsteroidMovement : MonoBehaviour
         rb.velocity = Random.insideUnitCircle*speed;
     }
 
+    void OnEnable()
+    {
+        Start();
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -5,18 +5,6 @@ using UnityEngine;
 public class AsteroidCollision : MonoBehaviour
 {
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     static void Kill(GameObject go)
     {
         Death death = go.GetComponent<Death>();

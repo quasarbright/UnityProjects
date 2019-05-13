@@ -15,4 +15,9 @@ public class SpriteSelector : MonoBehaviour
         Sprite sprite = sprites[Random.Range(0, sprites.Length)];
         spriteRenderer.sprite = sprite;
     }
+
+    void OnEnable()
+    {
+        Start();
+    }
 }

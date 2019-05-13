@@ -308,8 +308,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRate: 1
   spawnables:
-  - {fileID: 2615674841179805613, guid: 936f1034c9f780c42b418afea8daf5fa, type: 3}
-  - {fileID: 4488266419030101, guid: ce017e1537b35e640941348bf7319f88, type: 3}
+  - large asteroid
+  - medium asteroid
 --- !u!4 &630176690
 Transform:
   m_ObjectHideFlags: 0
@@ -471,6 +471,65 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce017e1537b35e640941348bf7319f88, type: 3}
+--- !u!1 &2004211208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2004211210}
+  - component: {fileID: 2004211209}
+  m_Layer: 0
+  m_Name: object pooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2004211209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004211208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2260731c6868ea4d836863ef332dcf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - name: small asteroid
+    prefab: {fileID: 6804728329740960979, guid: 6184123e11d74434ca7727a78108b116,
+      type: 3}
+    size: 30
+  - name: medium asteroid
+    prefab: {fileID: 4488266419030101, guid: ce017e1537b35e640941348bf7319f88, type: 3}
+    size: 20
+  - name: large asteroid
+    prefab: {fileID: 2615674841179805613, guid: 936f1034c9f780c42b418afea8daf5fa,
+      type: 3}
+    size: 10
+  - name: bullet
+    prefab: {fileID: 2969927050462102046, guid: c2fcd04d67ac66046818f1b58d779b26,
+      type: 3}
+    size: 30
+--- !u!4 &2004211210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004211208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6190848575652384862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -557,6 +616,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190848576681974694, guid: 0a18ff4c1a0228043800b77c030c2db7,
+        type: 3}
+      propertyPath: speed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6529615767961950803, guid: 0a18ff4c1a0228043800b77c030c2db7,
         type: 3}

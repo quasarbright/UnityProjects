@@ -264,3 +264,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fefe252b2616e4d80d8d1c1eb7a638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextAsteroidName: medium asteroid

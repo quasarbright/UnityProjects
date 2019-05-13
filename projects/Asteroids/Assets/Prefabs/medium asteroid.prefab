@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5cbb6eb6df719944a07926f6c699af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
 --- !u!114 &-1412464675230232146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fefe252b2616e4d80d8d1c1eb7a638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextAsteroidName: small asteroid
 --- !u!114 &1280139807250741092
 MonoBehaviour:
   m_ObjectHideFlags: 0

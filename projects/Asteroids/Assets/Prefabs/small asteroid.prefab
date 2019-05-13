@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5cbb6eb6df719944a07926f6c699af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 3
 --- !u!114 &-4893951906600855880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fefe252b2616e4d80d8d1c1eb7a638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextAsteroid: {fileID: 0}
 --- !u!114 &1772303206510553858
 MonoBehaviour:
   m_ObjectHideFlags: 0
