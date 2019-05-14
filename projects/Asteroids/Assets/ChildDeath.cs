@@ -8,17 +8,24 @@ public class ChildDeath : MonoBehaviour, Death
     // Start is called before the first frame update
     void Start()
     {
-        parentDeath = transform.parent.gameObject.GetComponent<Death>();
+        Transform parentTransform = transform.parent;
+        if (parentTransform != null)
+        {
+            parentDeath = transform.parent.gameObject.GetComponent<Death>();
+        }
     }
 
     public void Die()
     {
-        parentDeath.Die();
+        if (parentDeath != null)
+        {
+            parentDeath.Die();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

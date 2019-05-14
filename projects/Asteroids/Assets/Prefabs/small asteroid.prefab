@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: -8625699396922623129}
   - component: {fileID: 1581647116193631395}
   - component: {fileID: -4893951906600855880}
-  - component: {fileID: 8837516308939061066}
   - component: {fileID: 1772303206510553858}
+  - component: {fileID: 8837516308939061066}
+  - component: {fileID: -5057832952382590954}
   m_Layer: 0
   m_Name: small asteroid
   m_TagString: Enemy
@@ -32,8 +33,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6804728329740960979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.477, y: -2.863, z: 0}
-  m_LocalScale: {x: 0.29567438, y: 0.29567438, z: 0.29567438}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.29567438, y: 0.29567438, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -220,7 +221,7 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
@@ -228,7 +229,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &-8625699396922623129
 MonoBehaviour:
@@ -271,6 +272,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ba166f03956b7ea4f90f48ac23676c8b, type: 3}
   - {fileID: 21300000, guid: b559e25cf727b014ea2cb4b24ae7d227, type: 3}
   - {fileID: 21300000, guid: e52621aa6baa87f4db31179146359442, type: 3}
+--- !u!114 &1772303206510553858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6804728329740960979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f749d45f107ea4a9898fcf17fb14b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8837516308939061066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextAsteroidName: 
   scoreValue: 250
---- !u!114 &1772303206510553858
+--- !u!114 &-5057832952382590954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,6 +307,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6804728329740960979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f749d45f107ea4a9898fcf17fb14b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 999919dcee54e03489f272f1639fa5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostPrefab: {fileID: 3441138955868326523, guid: 2b1a2ba2919fa134b9fb39e15c122844,
+    type: 3}
+  parentGhosts: 1

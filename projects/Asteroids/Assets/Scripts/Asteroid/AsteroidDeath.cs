@@ -10,7 +10,7 @@ public class AsteroidDeath : MonoBehaviour, Death
     {
         if (nextAsteroidName != null && nextAsteroidName != "")
         {
-            Debug.Log(name+" died and spawned 2 more");
+            // Debug.Log(name+" died and spawned 2 more");
             ObjectPooler objectPooler = ObjectPooler.instance;
             objectPooler.SpawnObject(nextAsteroidName, transform.position, Quaternion.identity);
             objectPooler.SpawnObject(nextAsteroidName, transform.position, Quaternion.identity);
