@@ -27,7 +27,7 @@ public class PlayerDeath : MonoBehaviour, Death
 
     void CheckDeath()
     {
-        if(health == 0)
+        if(health <= 0)
         {
             deathPanel.SetActive(true);
             gameObject.SetActive(false);

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -1412464675230232146}
   - component: {fileID: 98250275112176316}
   - component: {fileID: 1280139807250741092}
+  - component: {fileID: 5425255975557353381}
   m_Layer: 0
   m_Name: medium asteroid
   m_TagString: Enemy
@@ -273,3 +274,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f749d45f107ea4a9898fcf17fb14b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5425255975557353381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4488266419030101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 999919dcee54e03489f272f1639fa5a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostPrefab: {fileID: 4556393746086196122, guid: 4bfed25a648ef1c40b44603fd494ac80,
+    type: 3}
+  parentGhosts: 1
