@@ -46,6 +46,10 @@ public class Follower : MonoBehaviour
             xf = 1;
             yf = 1;
             break;
+            case ScreenOffset.U:
+            xf = 0;
+            yf = 1;
+            break;
             case ScreenOffset.UL:
             xf = -1;
             yf = 1;

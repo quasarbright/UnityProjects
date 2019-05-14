@@ -11,15 +11,11 @@ GameObject:
   - component: {fileID: 4103069512303663288}
   - component: {fileID: 4676435283403829523}
   - component: {fileID: 2382578344622048037}
-  - component: {fileID: -6894199997894346885}
-  - component: {fileID: 5245867253142594003}
-  - component: {fileID: 2975216713463454751}
-  - component: {fileID: 8729427735539455041}
   - component: {fileID: 5004398964489947748}
-  - component: {fileID: 6660111421667427363}
-  - component: {fileID: 4604219698802695980}
+  - component: {fileID: -2563720006331893984}
+  - component: {fileID: 3740460383009365599}
   m_Layer: 0
-  m_Name: large asteroid
+  m_Name: large ghost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2615674841179805613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.305, y: -1.874, z: 0}
   m_LocalScale: {x: 1.620811, y: 1.620811, z: 3.6738384}
   m_Children: []
   m_Father: {fileID: 0}
@@ -179,68 +175,6 @@ PolygonCollider2D:
       - {x: 0.96999997, y: -0.84999996}
       - {x: 0.96, y: -0.96999997}
       - {x: 0.48999998, y: -1.1999999}
---- !u!50 &-6894199997894346885
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615674841179805613}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!114 &5245867253142594003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615674841179805613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f1ea953222d4124fb99e3e2a9bfe1c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2975216713463454751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615674841179805613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5cbb6eb6df719944a07926f6c699af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &8729427735539455041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615674841179805613}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46070a3afc28c64dad320fdeb573095, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: ba166f03956b7ea4f90f48ac23676c8b, type: 3}
-  - {fileID: 21300000, guid: b559e25cf727b014ea2cb4b24ae7d227, type: 3}
-  - {fileID: 21300000, guid: e52621aa6baa87f4db31179146359442, type: 3}
 --- !u!114 &5004398964489947748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f749d45f107ea4a9898fcf17fb14b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6660111421667427363
+--- !u!114 &-2563720006331893984
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,12 +196,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2615674841179805613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24fefe252b2616e4d80d8d1c1eb7a638, type: 3}
+  m_Script: {fileID: 11500000, guid: 81470b2d252f2084b981a225d94801a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextAsteroidName: medium asteroid
-  scoreValue: 1000
---- !u!114 &4604219698802695980
+--- !u!114 &3740460383009365599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,9 +208,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2615674841179805613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 999919dcee54e03489f272f1639fa5a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 04179d32c94bc2945abfecc16516c6de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostPrefab: {fileID: 6403935600058156986, guid: 2254c964fd2654a46a5826eb5b59e513,
-    type: 3}
-  parentGhosts: 1
+  target: {fileID: 0}
+  direction: 0

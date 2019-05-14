@@ -769,12 +769,12 @@ PrefabInstance:
     - target: {fileID: 4103069512303663288, guid: 936f1034c9f780c42b418afea8daf5fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.86
+      value: -8.8
       objectReference: {fileID: 0}
     - target: {fileID: 4103069512303663288, guid: 936f1034c9f780c42b418afea8daf5fa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.64
+      value: -2.8
       objectReference: {fileID: 0}
     - target: {fileID: 4103069512303663288, guid: 936f1034c9f780c42b418afea8daf5fa,
         type: 3}
@@ -1415,17 +1415,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4488266419030101, guid: ce017e1537b35e640941348bf7319f88, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8622392067162776370, guid: ce017e1537b35e640941348bf7319f88,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.585
+      value: -9.4
       objectReference: {fileID: 0}
     - target: {fileID: 8622392067162776370, guid: ce017e1537b35e640941348bf7319f88,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.985
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 8622392067162776370, guid: ce017e1537b35e640941348bf7319f88,
         type: 3}
@@ -1470,6 +1470,11 @@ PrefabInstance:
     - target: {fileID: 8622392067162776370, guid: ce017e1537b35e640941348bf7319f88,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735166502990402903, guid: ce017e1537b35e640941348bf7319f88,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1856,14 +1861,14 @@ MonoBehaviour:
   - name: small asteroid
     prefab: {fileID: 6804728329740960979, guid: 6184123e11d74434ca7727a78108b116,
       type: 3}
-    size: 30
+    size: 10
   - name: medium asteroid
     prefab: {fileID: 4488266419030101, guid: ce017e1537b35e640941348bf7319f88, type: 3}
-    size: 30
+    size: 5
   - name: large asteroid
     prefab: {fileID: 2615674841179805613, guid: 936f1034c9f780c42b418afea8daf5fa,
       type: 3}
-    size: 10
+    size: 5
   - name: bullet
     prefab: {fileID: 2969927050462102046, guid: c2fcd04d67ac66046818f1b58d779b26,
       type: 3}

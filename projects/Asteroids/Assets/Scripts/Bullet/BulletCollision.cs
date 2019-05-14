@@ -6,7 +6,7 @@ public class BulletCollision : MonoBehaviour
 {
     void Kill(GameObject go)
     {
-        Debug.Log(name+" killed "+go.name);
+        // Debug.Log(name+" killed "+go.name);
         Death death = go.GetComponent<Death>();
         if (death != null)
         {

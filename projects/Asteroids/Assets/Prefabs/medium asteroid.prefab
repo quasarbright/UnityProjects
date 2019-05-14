@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 5181059514464034433}
   - component: {fileID: 3735166502990402903}
   - component: {fileID: -1412464675230232146}
-  - component: {fileID: 98250275112176316}
   - component: {fileID: 1280139807250741092}
-  - component: {fileID: 5425255975557353381}
+  - component: {fileID: 98250275112176316}
+  - component: {fileID: 7013412752550862068}
   m_Layer: 0
   m_Name: medium asteroid
   m_TagString: Enemy
@@ -33,7 +33,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4488266419030101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.585, y: -1.985, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.74303675, y: 0.743085, z: 1.3364568}
   m_Children: []
   m_Father: {fileID: 0}
@@ -197,7 +197,7 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
@@ -248,6 +248,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ba166f03956b7ea4f90f48ac23676c8b, type: 3}
   - {fileID: 21300000, guid: b559e25cf727b014ea2cb4b24ae7d227, type: 3}
   - {fileID: 21300000, guid: e52621aa6baa87f4db31179146359442, type: 3}
+--- !u!114 &1280139807250741092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4488266419030101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f749d45f107ea4a9898fcf17fb14b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &98250275112176316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,19 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextAsteroidName: small asteroid
   scoreValue: 500
---- !u!114 &1280139807250741092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4488266419030101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f749d45f107ea4a9898fcf17fb14b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5425255975557353381
+--- !u!114 &7013412752550862068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,6 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999919dcee54e03489f272f1639fa5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostPrefab: {fileID: 4556393746086196122, guid: 4bfed25a648ef1c40b44603fd494ac80,
+  ghostPrefab: {fileID: 890530265823522586, guid: d64a030eedc630e40bd19be0952ee415,
     type: 3}
   parentGhosts: 1
