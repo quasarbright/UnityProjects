@@ -598,7 +598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &630176689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,10 +611,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3204503337aed4eab1a1cb04ab097b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 2
+  spawnRate: 1
   spawnables:
   - large asteroid
-  - medium asteroid
   - medium asteroid
   player: {fileID: 2124598257}
   minSpawnDistance: 3
@@ -764,7 +763,7 @@ PrefabInstance:
     - target: {fileID: 2615674841179805613, guid: 936f1034c9f780c42b418afea8daf5fa,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4103069512303663288, guid: 936f1034c9f780c42b418afea8daf5fa,
         type: 3}
@@ -1415,7 +1414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4488266419030101, guid: ce017e1537b35e640941348bf7319f88, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8622392067162776370, guid: ce017e1537b35e640941348bf7319f88,
         type: 3}
@@ -1861,7 +1860,7 @@ MonoBehaviour:
   - name: small asteroid
     prefab: {fileID: 6804728329740960979, guid: 6184123e11d74434ca7727a78108b116,
       type: 3}
-    size: 10
+    size: 5
   - name: medium asteroid
     prefab: {fileID: 4488266419030101, guid: ce017e1537b35e640941348bf7319f88, type: 3}
     size: 5
