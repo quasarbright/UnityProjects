@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public Canvas pauseCanvas;
+    public GameObject pausePanel;
     public int seed;
     [Range(0, 1)]
     bool paused = true;
@@ -14,11 +14,13 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if(pauseCanvas == null)
+        if(pausePanel == null)
         {
             Debug.LogWarning("game controller needs a pause canvas");
         }
         instance = this;
+        Time.timeScale = 0;
+        pausePanel.SetActive(true);
         seed = Random.Range(-999, 999);
     }
 
@@ -26,14 +28,14 @@ public class GameController : MonoBehaviour
     {
         paused = true;
         Time.timeScale = 0;
-        pauseCanvas.gameObject.SetActive(true);
+        pausePanel.SetActive(true);
     }
 
     void UnPause()
     {
         paused = false;
         Time.timeScale = 1;
-        pauseCanvas.gameObject.SetActive(false);
+        pausePanel.SetActive(false);
     }
 
     void TogglePause()
@@ -51,19 +53,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(paused)
-        {
-            Pause();
-        }
-        else
-        {
-            UnPause();
-        }
         if(Input.GetButtonDown("Cancel"))
         {
             TogglePause();
         }
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && paused)
         {
             UnPause();
         }
