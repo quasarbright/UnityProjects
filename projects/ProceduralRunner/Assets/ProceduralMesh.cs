@@ -11,6 +11,12 @@ public class ProceduralMesh : MonoBehaviour
     public int nx = 10;
     [Range(0f, 10f)]
     public float noiseRoughness = 5f;
+    [Range(0f,1f)]
+    public float height = .5f;
+    public bool invert = false;
+
+    public float speed = 5f;
+    float offset = 0f;
     MeshFilter mf;
     EdgeCollider2D coll;
     Mesh mesh;
@@ -22,14 +28,20 @@ public class ProceduralMesh : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        seed = Random.Range(-99999, 99999);
+        seed = GameController.instance.seed;
         mf = GetComponent<MeshFilter>();
         coll = GetComponent<EdgeCollider2D>();
         mesh = new Mesh();
+        UpdateOffset();
         UpdateHeights();
         UpdateMesh();
         UpdateCollider();
         RecalculateNormals();
+    }
+
+    void UpdateOffset()
+    {
+        offset += speed * Time.deltaTime;
     }
 
     void UpdateHeights()
@@ -38,7 +50,11 @@ public class ProceduralMesh : MonoBehaviour
         float k = noiseRoughness / nx;
         for(int i = 0; i < nx; i++)
         {
-            heights[i] = Mathf.PerlinNoise(i*k, seed);
+            heights[i] = height * Mathf.PerlinNoise((i+ offset)*k, seed);
+            if(invert)
+            {
+                heights[i] = height - heights[i];
+            }
         }
     }
 
@@ -94,6 +110,7 @@ public class ProceduralMesh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateOffset();
         UpdateHeights();
         UpdateMesh();
         UpdateCollider();
