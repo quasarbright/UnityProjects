@@ -22,6 +22,10 @@ public class Thrust : MonoBehaviour
         {
             shouldPush = true;
         }
+        else
+        {
+            shouldPush = false;
+        }
     }
 
     void FixedUpdate()
@@ -29,7 +33,7 @@ public class Thrust : MonoBehaviour
         if(shouldPush)
         {
             rb.AddForce(Vector2.up * thrustStrength * Time.fixedDeltaTime);
-            shouldPush = false;
+            // shouldPush = false;
         }
     }
 }

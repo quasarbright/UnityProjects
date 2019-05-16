@@ -421,7 +421,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254309354}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -927,7 +927,7 @@ PrefabInstance:
     - target: {fileID: 3762241102640106467, guid: c6b92793e4cbfe247b7188d355f6ac5e,
         type: 3}
       propertyPath: speed
-      value: 30
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b92793e4cbfe247b7188d355f6ac5e, type: 3}
@@ -1048,7 +1048,7 @@ PrefabInstance:
     - target: {fileID: 3762241102640106467, guid: c6b92793e4cbfe247b7188d355f6ac5e,
         type: 3}
       propertyPath: speed
-      value: 30
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b92793e4cbfe247b7188d355f6ac5e, type: 3}
