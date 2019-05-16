@@ -91,11 +91,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6fbb3acebc1fc418c44b8507957f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nx: 100
+  nx: 75
   noiseRoughness: 5
   height: 0.6
   invert: 0
-  speed: 20
+  speed: 0.3
 --- !u!68 &3762241102640106465
 EdgeCollider2D:
   m_ObjectHideFlags: 0
