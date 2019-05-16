@@ -50,7 +50,7 @@ public class ProceduralMesh : MonoBehaviour
         float k = noiseRoughness / nx;
         for(int i = 0; i < nx; i++)
         {
-            heights[i] = height * Mathf.PerlinNoise((i+ offset)*k, seed);
+            heights[i] = height * Mathf.PerlinNoise((i + offset)*k, seed);
             if(invert)
             {
                 heights[i] = height - heights[i];
