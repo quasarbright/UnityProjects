@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 public class Matrix
 {
@@ -53,5 +54,16 @@ public class Matrix
             }
         }
         return ans;
+    }
+
+    public void ApplyFunc(Func<float, float> f)
+    {
+        for(int r = 0; r < rows; r++)
+        {
+            for(int c = 0; c < cols; c++)
+            {
+                Set(r, c, f(Get(r, c)));
+            }
+        }
     }
 }
