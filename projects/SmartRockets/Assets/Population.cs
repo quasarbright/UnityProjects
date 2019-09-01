@@ -44,7 +44,7 @@ public class Population : MonoBehaviour
             fitnessTotal += fitness;
             fitnessTotals[i] = fitnessTotal;
         }
-
+        return new DNA[]{new DNA(1)};
         // now let's use our random distribution
     }
 }

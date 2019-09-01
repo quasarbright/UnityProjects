@@ -21,6 +21,7 @@ public class DiscreteDistribution
     // returns the index of a randomly sampled element
     public int sample()
     {
-        /// left off here about to write sample
+        float rand = Random.Range(0f, this.total);
+        return 1;
     }
 }
