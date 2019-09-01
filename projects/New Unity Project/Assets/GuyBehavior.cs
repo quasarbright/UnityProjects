@@ -16,12 +16,12 @@ public class GuyBehavior : MonoBehaviour
     int age = 0;
     public GameObject target;
     // contains force sequence
-    DNA dna;
+    public DNA dna;
     Rigidbody rb;
     // should we keep moving?
-    bool dead = false;
+    public bool dead = false;
     // have we hit the target?
-    bool succeeded = false;
+    public bool succeeded = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,11 +72,19 @@ public class GuyBehavior : MonoBehaviour
         // we want a fitness function that is inversely related to distance from target
         // so the closer to the target, the more fitness
         Vector3 disp = this.target.transform.position - this.transform.position;
-        return 20*20 - disp.sqrMagnitude;
+        float fitness = 20*20 - disp.sqrMagnitude;
+        if(fitness < 0)
+        {
+            return 0;
+        }
+        else{
+            return fitness;
+        }
     }
 
     public void ResetValues()
     {
+        // keep dna information, but go back to start
         this.age = 0;
         this.dead = false;
         this.succeeded = false;
