@@ -14,6 +14,10 @@ public class PerlinTerrain : MonoBehaviour
     [Range(0f, 1f)]
     public float threshold = 0.5f;
 
+    [Tooltip("How quickly the world moves")]
+    public float velocity = 1f;
+    float offset;
+
     [Tooltip("The block the world will be constructed from")]
     public GameObject blockPrefab;
 
@@ -23,6 +27,7 @@ public class PerlinTerrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        offset = 0f;
         noise = new PerlinNoise(frequency);
 
         blocks = new GameObject[length,width,height];
@@ -50,6 +55,7 @@ public class PerlinTerrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        offset += velocity;
         // noise = new PerlinNoise(frequency);
         for (int x = 0; x < length; x++)
         {
@@ -57,7 +63,7 @@ public class PerlinTerrain : MonoBehaviour
             {
                 for (int y = 0; y < height; y++)
                 {
-                    float value = noise.Sample(x, y, z);
+                    float value = noise.Sample(x, y + offset, z);
                     // Debug.Log(value);
                     GameObject block = blocks[x, z, y];
                     if (value >= threshold)
