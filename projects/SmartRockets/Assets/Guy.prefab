@@ -107,7 +107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifespan: 100
   forceMagnitude: 30
-  target: {fileID: 0}
+  target: {fileID: 1683009638449011354}
+  dead: 0
+  succeeded: 0
 --- !u!54 &1683009638449011355
 Rigidbody:
   m_ObjectHideFlags: 0
