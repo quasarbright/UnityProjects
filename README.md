@@ -12,3 +12,8 @@ Random colors moving around using perlin noise
 # [Procedural Runner](https://quasarbright.github.io/UnityProjects/projects/ProceduralRunner/Build/Webgl/index.html)
 ![](https://quasarbright.github.io/UnityProjects/projects/ProceduralRunner/screenshots/ProceduralRunnerScreenshot.PNG)
 Press space to fly up and release to fall down. Try not to hit the floor or ceiling. Sometimes it can take a few tries to get going because you might spawn in the ceiling or floor
+# [Smart Rockets](https://quasarbright.github.io/UnityProjects/projects/SmartRockets/Build/index.html)
+![](https://quasarbright.github.io/UnityProjects/projects/SmartRockets/screenshots/Capture.PNG)
+This is a Unity 3D version of a [p5.js program I made](https://editor.p5js.org/mdelmonaco/present/BkJquZ1Ae)  
+
+The population of cones learns to seek the target using a genetic algorithm
