@@ -149,8 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522aa6b3d4e346c44bfe94dc876a79b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooler: {fileID: 1594609275}
-  guyPoolName: Guys
+  guyPool: {fileID: 1594609275}
+  foodPool: {fileID: 1331143087}
+  poisonPool: {fileID: 878904412}
   bounds: {fileID: 1691369163}
 --- !u!4 &361181714
 Transform:
@@ -164,7 +165,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -530,6 +531,51 @@ Transform:
   m_Father: {fileID: 1109303136}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
+--- !u!1 &878904411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 878904413}
+  - component: {fileID: 878904412}
+  m_Layer: 0
+  m_Name: poison pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &878904412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878904411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7fdfdc7efd62a428331346e9a91aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4120352782072634746, guid: bc0545d3f49762342b7021a272384dad, type: 3}
+  size: 10
+--- !u!4 &878904413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878904411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.05000019, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +787,51 @@ Transform:
   m_Father: {fileID: 1109303136}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
+--- !u!1 &1331143086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1331143088}
+  - component: {fileID: 1331143087}
+  m_Layer: 0
+  m_Name: food pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1331143087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331143086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7fdfdc7efd62a428331346e9a91aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6787769966318158429, guid: 4dceb75e3c4fee9499fffc4277c220e7, type: 3}
+  size: 10
+--- !u!4 &1331143088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331143086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.05000019, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1594609274
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +843,7 @@ GameObject:
   - component: {fileID: 1594609276}
   - component: {fileID: 1594609275}
   m_Layer: 0
-  m_Name: pooler
+  m_Name: guy pool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -770,17 +861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7fdfdc7efd62a428331346e9a91aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools:
-  - name: Guys
-    prefab: {fileID: 8561984848287612014, guid: 8871aee5c4a523d4faa552bc3af0e496,
-      type: 3}
-    size: 100
-  - name: 
-    prefab: {fileID: 0}
-    size: 0
-  - name: 
-    prefab: {fileID: 0}
-    size: 0
+  prefab: {fileID: 8561984848287612014, guid: 8871aee5c4a523d4faa552bc3af0e496, type: 3}
+  size: 10
 --- !u!4 &1594609276
 Transform:
   m_ObjectHideFlags: 0
@@ -1118,7 +1200,7 @@ PrefabInstance:
     - target: {fileID: 8801504434153359101, guid: bc0545d3f49762342b7021a272384dad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8801504434153359101, guid: bc0545d3f49762342b7021a272384dad,
         type: 3}
@@ -1256,7 +1338,7 @@ PrefabInstance:
     - target: {fileID: 4550589393705232019, guid: 4dceb75e3c4fee9499fffc4277c220e7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4550589393705232019, guid: 4dceb75e3c4fee9499fffc4277c220e7,
         type: 3}

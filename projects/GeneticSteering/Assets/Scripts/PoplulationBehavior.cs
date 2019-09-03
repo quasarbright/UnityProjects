@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PoplulationBehavior : MonoBehaviour
 {
-    public ObjectPooler pooler;
-    [Tooltip("The name of the guy pool in the object pooler")]
-    public string guyPoolName;
+    public ObjectPooler guyPool;
+    GuyBehavior[] guys;
+    public ObjectPooler foodPool;
+    GameObject[] foods;
+    public ObjectPooler poisonPool;
+    GameObject[] poisons;
     [Tooltip("A cube object representing the boundaries of the world")]
     public GameObject bounds;
     Vector3  minPos;
@@ -20,6 +23,14 @@ public class PoplulationBehavior : MonoBehaviour
         float h = bounds.transform.lossyScale.y;
         minPos = new Vector3(position.x - l / 2f, position.y - h / 2f, position.z - w / 2f);
         maxPos = new Vector3(position.x + l / 2f, position.y + h / 2f, position.z + w / 2f);
+
+        GameObject[] guyObjects = guyPool.GetAll();
+        for(int i = 0; i < guyObjects.Length; i++)
+        {
+            guys[i] = guyObjects[i].GetComponent<GuyBehavior>();
+        }
+        foods = foodPool.GetAll();
+        poisons = poisonPool.GetAll();
     }
 
     // Update is called once per frame
@@ -34,6 +45,6 @@ public class PoplulationBehavior : MonoBehaviour
         position.x = Random.Range(minPos.x, maxPos.x);
         position.z = Random.Range(minPos.z, maxPos.z);
         position.y = Random.Range(minPos.y, maxPos.y);
-        pooler.SpawnObject(guyPoolName, position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
+        guyPool.SpawnObject(position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
     }
 }
