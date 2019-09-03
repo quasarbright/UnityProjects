@@ -16,7 +16,7 @@ public class ObjectPooler : MonoBehaviour
             {
                 GameObject obj = Instantiate(prefab);
                 obj.name += i.ToString();
-                obj.SetActive(false);
+                obj.SetActive(true);
                 pool.Enqueue(obj);
             }
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoplulationBehavior : MonoBehaviour
+public class PopulationBehavior : MonoBehaviour
 {
     public ObjectPooler guyPool;
     GuyBehavior[] guys;
@@ -25,9 +25,11 @@ public class PoplulationBehavior : MonoBehaviour
         maxPos = new Vector3(position.x + l / 2f, position.y + h / 2f, position.z + w / 2f);
 
         GameObject[] guyObjects = guyPool.GetAll();
+        guys = new GuyBehavior[guyObjects.Length];
         for(int i = 0; i < guyObjects.Length; i++)
         {
-            guys[i] = guyObjects[i].GetComponent<GuyBehavior>();
+            GameObject guyObject = guyObjects[i];
+            guys[i] = guyObject.GetComponent<GuyBehavior>();
         }
         foods = foodPool.GetAll();
         poisons = poisonPool.GetAll();
