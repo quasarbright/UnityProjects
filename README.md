@@ -17,3 +17,8 @@ Press space to fly up and release to fall down. Try not to hit the floor or ceil
 This is a Unity 3D version of a [p5.js program I made](https://editor.p5js.org/mdelmonaco/present/BkJquZ1Ae)  
 
 The population of cones learns to seek the target using a genetic algorithm
+# [Perlin Cube Terrain](https://quasarbright.github.io/UnityProjects/projects/Perlin%20Cube%20Terrain/Build/webgl/index.html)
+![](https://quasarbright.github.io/UnityProjects/projects/Perlin%20Cube%20Terrain/screenshots/Capture.PNG)
+This is a Unity 3D version of a [processing sketch I made](https://www.youtube.com/watch?v=_ozs9ZBzMyw)  
+
+I created a 3D perlin noise scalar field and put green cubes where the value was above a threshold. I then translated the scalar field vertically over time to have the terrain move
