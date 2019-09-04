@@ -8,30 +8,36 @@ public class DNA
     public float poisonRadius;
     public float foodStrength;
     public float poisonStrength;
+    public float maxVelocity;
 
     static float minRadius = 0f;
     static float maxRadius = 20f;
-    static float minStrength = -1000f;
-    static float maxStrength = 1000f;
+    static float minStrength = -10000f;
+    static float maxStrength = 10000f;
+    static float minMaxVelocity = 0f;
+    static float maxMaxVelocity = 20f;
 
     public DNA()
     {
-        // foodRadius = Random.Range(minRadius, maxRadius);
-        // poisonRadius = Random.Range(minRadius, maxRadius);
-        // foodStrength = Random.Range(minStrength, maxStrength);
-        // poisonStrength = Random.Range(minStrength, maxStrength);
-        foodRadius = maxRadius;
-        poisonRadius = maxRadius;
-        foodStrength = maxStrength;
-        poisonStrength = maxStrength;
+        foodRadius = Random.Range(minRadius, maxRadius);
+        poisonRadius = Random.Range(minRadius, maxRadius);
+        foodStrength = Random.Range(minStrength, maxStrength);
+        poisonStrength = Random.Range(minStrength, maxStrength);
+        maxVelocity = Random.Range(minMaxVelocity, maxMaxVelocity);
+        // foodRadius = maxRadius;
+        // poisonRadius = maxRadius;
+        // foodStrength = maxStrength;
+        // poisonStrength = maxStrength;
+        // maxVelocity = maxMaxVelocity;
     }
 
-    DNA(float foodRadius, float poisonRadius, float foodStrength, float poisonStrength)
+    DNA(float foodRadius, float poisonRadius, float foodStrength, float poisonStrength, float maxVelocity)
     {
         this.foodRadius = foodRadius;
         this.poisonRadius = poisonRadius;
         this.foodStrength = foodStrength;
         this.poisonStrength = poisonStrength;
+        this.maxVelocity = maxVelocity;
     }
 
     float RandomChoice(float f1, float f2)
@@ -52,6 +58,7 @@ public class DNA
         poisonRadius = RandomChoice(parent1.poisonRadius, parent2.poisonRadius);
         foodStrength = RandomChoice(parent1.foodStrength, parent2.foodStrength);
         poisonStrength = RandomChoice(parent1.poisonStrength, parent2.poisonStrength);
+        maxVelocity = RandomChoice(parent1.maxVelocity, parent1.maxVelocity);
     }
 
     public void Mutate(float mutationRate)
@@ -67,6 +74,10 @@ public class DNA
         if(Random.Range(0f, 1f) < mutationRate)
         {
             foodStrength = Random.Range(minStrength, maxStrength);
+        }
+        if(Random.Range(0f, 1f) < mutationRate)
+        {
+            maxVelocity = Random.Range(minMaxVelocity, maxMaxVelocity);
         }
     }
 }

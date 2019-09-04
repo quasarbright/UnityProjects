@@ -10,7 +10,6 @@ public class GuyBehavior : MonoBehaviour
     bool dead;
     DNA dna;
     Rigidbody rb;
-
     [HideInInspector]
     public GameObject[] foods;
     [HideInInspector]
@@ -64,5 +63,35 @@ public class GuyBehavior : MonoBehaviour
                 rb.AddForce(force);
             }
         }
+
+        if(poisons != null)
+        {
+            Vector3 closest = new Vector3(-1000000, -100000, -10000);
+            float closestDsq = float.PositiveInfinity;
+            for(int i = 0; i < poisons.Length; i++)
+            {
+                GameObject poison = poisons[i];
+                if(poison != null)
+                {
+                    Vector3 disp = poison.transform.position - transform.position;
+                    float distsq = disp.sqrMagnitude;
+                    if(distsq < dna.poisonRadius * dna.poisonRadius && distsq < closestDsq)
+                    {
+                        closest = poison.transform.position;
+                        closestDsq = distsq;
+                    }
+                }
+            }
+            if(closest != new Vector3(-1000000, -100000, -10000))
+            {
+                Vector3 disp = closest - this.transform.position;
+                Vector3 norm = disp.normalized;
+                Vector3 force = norm * dna.poisonStrength;
+                force *= Time.fixedDeltaTime;
+                rb.AddForce(force);
+            }
+        }
+
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, dna.maxVelocity);
     }
 }
