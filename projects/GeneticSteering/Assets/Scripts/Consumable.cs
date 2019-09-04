@@ -7,6 +7,7 @@ public class Consumable : MonoBehaviour
     // Start is called before the first frame update
     [Tooltip("bounding cube")]
     public GameObject bounds;
+    public bool isFood = true;
     Vector3 minPos, maxPos;
     void Start()
     {

@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounds: {fileID: 1691369163}
+  isFood: 1
 --- !u!1 &361181712
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a1b438743a65c479b082b00c26449d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startSize: 100
   guyPool: {fileID: 1594609275}
   numFoods: 100
   foodPrefab: {fileID: 191576857}
@@ -391,6 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounds: {fileID: 1691369163}
+  isFood: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 8561984848287612014, guid: 8871aee5c4a523d4faa552bc3af0e496, type: 3}
-  size: 10
+  size: 1000
 --- !u!4 &1594609276
 Transform:
   m_ObjectHideFlags: 0
@@ -1418,11 +1421,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4885933305557072698, guid: bc0545d3f49762342b7021a272384dad,
-        type: 3}
-      propertyPath: bounds
-      value: 
-      objectReference: {fileID: 1691369163}
     - target: {fileID: 4120352782072634746, guid: bc0545d3f49762342b7021a272384dad,
         type: 3}
       propertyPath: m_Name
@@ -1486,6 +1484,16 @@ PrefabInstance:
     - target: {fileID: 8801504434153359101, guid: bc0545d3f49762342b7021a272384dad,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4885933305557072698, guid: bc0545d3f49762342b7021a272384dad,
+        type: 3}
+      propertyPath: bounds
+      value: 
+      objectReference: {fileID: 1691369163}
+    - target: {fileID: -4885933305557072698, guid: bc0545d3f49762342b7021a272384dad,
+        type: 3}
+      propertyPath: isFood
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1571,11 +1579,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3046675070369508663, guid: 4dceb75e3c4fee9499fffc4277c220e7,
-        type: 3}
-      propertyPath: bounds
-      value: 
-      objectReference: {fileID: 1691369163}
     - target: {fileID: 6787769966318158429, guid: 4dceb75e3c4fee9499fffc4277c220e7,
         type: 3}
       propertyPath: m_Name
@@ -1641,6 +1644,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3046675070369508663, guid: 4dceb75e3c4fee9499fffc4277c220e7,
+        type: 3}
+      propertyPath: bounds
+      value: 
+      objectReference: {fileID: 1691369163}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dceb75e3c4fee9499fffc4277c220e7, type: 3}
 --- !u!1001 &8276135139101206906

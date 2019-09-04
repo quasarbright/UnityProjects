@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PopulationBehavior : MonoBehaviour
 {
+    [Tooltip("Number of guys to start with")]
+    public int startSize = 100;
+    [Range(0f, 1f)]
+    [Tooltip("probability of reproducing each second")]
+    public float reproductionChance = 0.1f;
     public ObjectPooler guyPool;
     GuyBehavior[] guys;
     public int numFoods = 100;
@@ -44,6 +49,9 @@ public class PopulationBehavior : MonoBehaviour
             guys[i] = guyObject.GetComponent<GuyBehavior>();
             guys[i].foods = foods;
             guys[i].poisons = poisons;
+        }
+        for(int i = 0; i < startSize; i++)
+        {
             Spawn(guyPool);
         }
     }
@@ -51,6 +59,10 @@ public class PopulationBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        for(int i = 0; i < guys.Length; i++)
+        {
+            // left off here about to do reproduction
+        }
     }
 
     Vector3 GenerateSpawnPosition()

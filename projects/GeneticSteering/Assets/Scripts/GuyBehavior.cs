@@ -104,6 +104,24 @@ public class GuyBehavior : MonoBehaviour
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, dna.maxVelocity);
     }
 
+    void OnTriggerEnter(Collider collider)
+    {
+        GameObject obj = collider.gameObject;
+        Consumable consumable = obj.GetComponent<Consumable>();
+        if(consumable != null)
+        {
+            if(consumable.isFood)
+            {
+                health = maxHealth;
+            }
+            else
+            {
+                // poison
+                Die();
+            }
+        }
+    }
+
     void Die()
     {
         gameObject.SetActive(false);
