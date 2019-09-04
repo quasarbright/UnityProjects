@@ -6,6 +6,8 @@ using UnityEngine;
 public class GuyBehavior : MonoBehaviour
 {
     public ObjectPooler pooler;
+    [Tooltip("Number of seconds until starvation")]
+    public float maxHealth = 2;
     float health;
     bool dead;
     DNA dna;
@@ -19,8 +21,7 @@ public class GuyBehavior : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        health = 100;
-        dead = false;
+        health = maxHealth;
         dna = new DNA();
         rb.velocity = Vector3.up;
     }
@@ -33,6 +34,14 @@ public class GuyBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
+    void Update()
+    {
+        health -= Time.deltaTime;
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
     void FixedUpdate()
     {
         LookAtVelocity();
@@ -93,5 +102,10 @@ public class GuyBehavior : MonoBehaviour
         }
 
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, dna.maxVelocity);
+    }
+
+    void Die()
+    {
+        gameObject.SetActive(false);
     }
 }

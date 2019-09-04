@@ -16,6 +16,7 @@ public class Consumable : MonoBehaviour
         float h = bounds.transform.lossyScale.y;
         minPos = new Vector3(position.x - l / 2f, position.y - h / 2f, position.z - w / 2f);
         maxPos = new Vector3(position.x + l / 2f, position.y + h / 2f, position.z + w / 2f);
+        Relocate();
     }// left off not being able to reference bounds in the prefab
 
     void Relocate()

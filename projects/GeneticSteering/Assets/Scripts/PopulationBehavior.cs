@@ -31,12 +31,12 @@ public class PopulationBehavior : MonoBehaviour
         foods = new GameObject[numFoods];
         for(int i = 0; i < numFoods; i++)
         {
-            foods[i] = Instantiate(foodPrefab, GenerateSpawnPosition(), Quaternion.LookRotation(Vector3.forward, Vector3.up));
+            foods[i] = Instantiate(foodPrefab);
         }
         poisons = new GameObject[numPoisons];
         for (int i = 0; i < numPoisons; i++)
         {
-            poisons[i] = Instantiate(poisonPrefab, GenerateSpawnPosition(), Quaternion.LookRotation(Vector3.forward, Vector3.up));
+            poisons[i] = Instantiate(poisonPrefab);
         }
         for(int i = 0; i < guyObjects.Length; i++)
         {
