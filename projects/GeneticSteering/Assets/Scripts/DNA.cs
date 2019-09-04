@@ -11,15 +11,19 @@ public class DNA
 
     static float minRadius = 0f;
     static float maxRadius = 20f;
-    static float minStrength = -20f;
-    static float maxStrength = 20f;
+    static float minStrength = -1000f;
+    static float maxStrength = 1000f;
 
     public DNA()
     {
-        foodRadius = Random.Range(minRadius, maxRadius);
-        poisonRadius = Random.Range(minRadius, maxRadius);
-        foodStrength = Random.Range(minStrength, maxStrength);
-        poisonStrength = Random.Range(minStrength, maxStrength);
+        // foodRadius = Random.Range(minRadius, maxRadius);
+        // poisonRadius = Random.Range(minRadius, maxRadius);
+        // foodStrength = Random.Range(minStrength, maxStrength);
+        // poisonStrength = Random.Range(minStrength, maxStrength);
+        foodRadius = maxRadius;
+        poisonRadius = maxRadius;
+        foodStrength = maxStrength;
+        poisonStrength = maxStrength;
     }
 
     DNA(float foodRadius, float poisonRadius, float foodStrength, float poisonStrength)

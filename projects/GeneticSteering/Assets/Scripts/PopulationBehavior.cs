@@ -6,9 +6,11 @@ public class PopulationBehavior : MonoBehaviour
 {
     public ObjectPooler guyPool;
     GuyBehavior[] guys;
-    public ObjectPooler foodPool;
+    public int numFoods = 100;
+    public GameObject foodPrefab;
     GameObject[] foods;
-    public ObjectPooler poisonPool;
+    public int numPoisons = 100;
+    public GameObject poisonPrefab;
     GameObject[] poisons;
     [Tooltip("A cube object representing the boundaries of the world")]
     public GameObject bounds;
@@ -26,27 +28,43 @@ public class PopulationBehavior : MonoBehaviour
 
         GameObject[] guyObjects = guyPool.GetAll();
         guys = new GuyBehavior[guyObjects.Length];
+        foods = new GameObject[numFoods];
+        for(int i = 0; i < numFoods; i++)
+        {
+            foods[i] = Instantiate(foodPrefab, GenerateSpawnPosition(), Quaternion.LookRotation(Vector3.forward, Vector3.up));
+        }
+        poisons = new GameObject[numPoisons];
+        for (int i = 0; i < numPoisons; i++)
+        {
+            poisons[i] = Instantiate(poisonPrefab, GenerateSpawnPosition(), Quaternion.LookRotation(Vector3.forward, Vector3.up));
+        }
         for(int i = 0; i < guyObjects.Length; i++)
         {
             GameObject guyObject = guyObjects[i];
             guys[i] = guyObject.GetComponent<GuyBehavior>();
+            guys[i].foods = foods;
+            guys[i].poisons = poisons;
+            Spawn(guyPool);
         }
-        foods = foodPool.GetAll();
-        poisons = poisonPool.GetAll();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Spawn();
     }
 
-    void Spawn()
+    Vector3 GenerateSpawnPosition()
     {
         Vector3 position = new Vector3();
         position.x = Random.Range(minPos.x, maxPos.x);
         position.z = Random.Range(minPos.z, maxPos.z);
         position.y = Random.Range(minPos.y, maxPos.y);
-        guyPool.SpawnObject(position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
+        return position;
+    }
+
+    void Spawn(ObjectPooler pool)
+    {
+        Vector3 position = GenerateSpawnPosition();
+        pool.SpawnObject(position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
     }
 }
