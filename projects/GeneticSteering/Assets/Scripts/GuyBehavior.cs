@@ -10,7 +10,8 @@ public class GuyBehavior : MonoBehaviour
     public float maxHealth = 2;
     float health;
     bool dead;
-    DNA dna;
+    [HideInInspector]
+    public DNA dna;
     Rigidbody rb;
     [HideInInspector]
     public GameObject[] foods;
@@ -25,7 +26,6 @@ public class GuyBehavior : MonoBehaviour
         dna = new DNA();
         rb.velocity = Vector3.up;
     }
-
     void LookAtVelocity()
     {
         if(rb.velocity.sqrMagnitude > 0){

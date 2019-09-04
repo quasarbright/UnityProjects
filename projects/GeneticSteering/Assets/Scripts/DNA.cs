@@ -65,11 +65,14 @@ public class DNA
     {
         if(Random.Range(0f, 1f) < mutationRate)
         {
-            foodRadius = Random.Range(minRadius, maxRadius);
+            foodRadius += Random.Range(-1f,1f);
+            foodRadius = Mathf.Clamp(foodRadius, minRadius, maxRadius);
         }
         if(Random.Range(0f, 1f) < mutationRate)
         {
-            poisonRadius = Random.Range(minRadius, maxRadius);
+            foodRadius += Random.Range(-1f, 1f);
+            foodRadius = Mathf.Clamp(foodRadius, minRadius, maxRadius);
+            // left off here doing nudge mutation, not randomize mutation
         }
         if(Random.Range(0f, 1f) < mutationRate)
         {
@@ -79,5 +82,10 @@ public class DNA
         {
             maxVelocity = Random.Range(minMaxVelocity, maxMaxVelocity);
         }
+    }
+
+    public DNA Clone()
+    {
+        return new DNA(foodRadius, poisonRadius, foodStrength, poisonStrength, maxVelocity);
     }
 }

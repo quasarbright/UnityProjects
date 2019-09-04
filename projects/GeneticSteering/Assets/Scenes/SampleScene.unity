@@ -261,7 +261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a1b438743a65c479b082b00c26449d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSize: 100
+  startSize: 10
+  reproductionChance: 0.1
+  mutationRate: 0.1
   guyPool: {fileID: 1594609275}
   numFoods: 100
   foodPrefab: {fileID: 191576857}

@@ -9,6 +9,9 @@ public class PopulationBehavior : MonoBehaviour
     [Range(0f, 1f)]
     [Tooltip("probability of reproducing each second")]
     public float reproductionChance = 0.1f;
+    [Range(0f, 1f)]
+    [Tooltip("probability of each attribute being randomized upon reproduction")]
+    public float mutationRate = 0.1f;
     public ObjectPooler guyPool;
     GuyBehavior[] guys;
     public int numFoods = 100;
@@ -61,7 +64,15 @@ public class PopulationBehavior : MonoBehaviour
     {
         for(int i = 0; i < guys.Length; i++)
         {
-            // left off here about to do reproduction
+            GuyBehavior guy = guys[i];
+            if(guy.gameObject.activeInHierarchy)
+            {
+                if(Random.Range(0f, 1f) < Time.deltaTime * reproductionChance)
+                {
+                    Debug.Log("spawned");
+                    SpawnChild(guy);
+                }
+            }
         }
     }
 
@@ -74,9 +85,22 @@ public class PopulationBehavior : MonoBehaviour
         return position;
     }
 
-    void Spawn(ObjectPooler pool)
+    GameObject Spawn(ObjectPooler pool)
     {
         Vector3 position = GenerateSpawnPosition();
-        pool.SpawnObject(position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
+        return pool.SpawnObject(position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
+    }
+
+    void SpawnChild(GuyBehavior guy)
+    {
+        DNA newdna = guy.dna.Clone();
+        newdna.Mutate(mutationRate);
+        GameObject newGuyObject = Spawn(guyPool);
+        GuyBehavior newGuy = newGuyObject.GetComponent<GuyBehavior>();
+        if(newGuy != null)
+        {
+            newGuy.dna = newdna;
+            newGuyObject.transform.position = new Vector3() + guy.gameObject.transform.position;
+        }
     }
 }

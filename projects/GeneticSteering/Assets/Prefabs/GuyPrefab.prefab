@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooler: {fileID: 0}
-  maxHealth: 6
+  maxHealth: 3
   foods: []
   poisons: []
 --- !u!64 &-8104658015103759018
