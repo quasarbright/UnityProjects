@@ -9,9 +9,6 @@ public class PopulationBehavior : MonoBehaviour
     [Range(0f, 1f)]
     [Tooltip("probability of reproducing each second")]
     public float reproductionChance = 0.1f;
-    [Range(0f, 1f)]
-    [Tooltip("probability of each attribute being randomized upon reproduction")]
-    public float mutationRate = 0.1f;
     public ObjectPooler guyPool;
     GuyBehavior[] guys;
     public int numFoods = 100;
@@ -94,7 +91,7 @@ public class PopulationBehavior : MonoBehaviour
     void SpawnChild(GuyBehavior guy)
     {
         DNA newdna = guy.dna.Clone();
-        newdna.Mutate(mutationRate);
+        newdna.Mutate();
         GameObject newGuyObject = Spawn(guyPool);
         GuyBehavior newGuy = newGuyObject.GetComponent<GuyBehavior>();
         if(newGuy != null)

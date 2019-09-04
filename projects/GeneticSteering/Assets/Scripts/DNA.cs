@@ -61,27 +61,22 @@ public class DNA
         maxVelocity = RandomChoice(parent1.maxVelocity, parent1.maxVelocity);
     }
 
-    public void Mutate(float mutationRate)
+    public void Mutate()
     {
-        if(Random.Range(0f, 1f) < mutationRate)
-        {
-            foodRadius += Random.Range(-1f,1f);
-            foodRadius = Mathf.Clamp(foodRadius, minRadius, maxRadius);
-        }
-        if(Random.Range(0f, 1f) < mutationRate)
-        {
-            foodRadius += Random.Range(-1f, 1f);
-            foodRadius = Mathf.Clamp(foodRadius, minRadius, maxRadius);
-            // left off here doing nudge mutation, not randomize mutation
-        }
-        if(Random.Range(0f, 1f) < mutationRate)
-        {
-            foodStrength = Random.Range(minStrength, maxStrength);
-        }
-        if(Random.Range(0f, 1f) < mutationRate)
-        {
-            maxVelocity = Random.Range(minMaxVelocity, maxMaxVelocity);
-        }
+        foodRadius += Random.Range(-1f,1f);
+        foodRadius = Mathf.Clamp(foodRadius, minRadius, maxRadius);
+
+        poisonRadius += Random.Range(-1f, 1f);
+        poisonRadius = Mathf.Clamp(poisonRadius, minRadius, maxRadius);
+
+        foodStrength += Random.Range(-10f, 10f);
+        foodStrength = Mathf.Clamp(foodStrength, minStrength, maxStrength);
+
+        poisonStrength += Random.Range(-10f, 10f);
+        poisonStrength = Mathf.Clamp(poisonStrength, minStrength, maxStrength);
+
+        maxVelocity = Random.Range(-1f, 1f);
+        maxVelocity = Mathf.Clamp(maxVelocity, minMaxVelocity, maxMaxVelocity);
     }
 
     public DNA Clone()
