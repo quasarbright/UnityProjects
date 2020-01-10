@@ -6,6 +6,8 @@ public class ShaderHaver : MonoBehaviour
 {
     public ComputeShader shader;
     public ComputeBuffer colorBuffer;
+    public Camera mainCamera;
+    public GameObject displayObject;
     public ComputeBuffer boundsBuffer;
     [SerializeField]
     public List<Color> colors;
@@ -13,6 +15,8 @@ public class ShaderHaver : MonoBehaviour
     public Vector2 zoomTo = new Vector2(0.4244f, 0.200759f);
     public float zoomRate = .1f;
     float xmin, xmax, ymin, ymax;
+    Vector2 displayMin, displayMax;
+    float displayWidth, displayHeight;
     int kernelNumber;
     
     public RenderTexture rt;
@@ -22,6 +26,12 @@ public class ShaderHaver : MonoBehaviour
     void Start()
     {
         Debug.Log(SystemInfo.supportsComputeShaders);
+
+        Vector2 displayPosition = displayObject.transform.position;
+        displayWidth = displayObject.transform.lossyScale.x;
+        displayHeight = displayObject.transform.lossyScale.y;
+        displayMin = new Vector2(displayPosition.x - displayWidth/2, displayPosition.y - displayHeight/2);
+        displayMax = new Vector2(displayPosition.x + displayWidth/2, displayPosition.y + displayHeight/2);
 
 
         colorsArray = new Color[256];
@@ -35,10 +45,10 @@ public class ShaderHaver : MonoBehaviour
 
         boundsBuffer = new ComputeBuffer(4, sizeof(float));
         float size = 2;
-        xmin = zoomTo.x-2;
-        xmax = zoomTo.x+2;
-        ymin = zoomTo.y-2;
-        ymax = zoomTo.y+2;
+        xmin = zoomTo.x-size;
+        xmax = zoomTo.x+size;
+        ymin = zoomTo.y-size;
+        ymax = zoomTo.y+size;
         UpdateBounds();
 
 
@@ -57,7 +67,9 @@ public class ShaderHaver : MonoBehaviour
     void Update()
     {
         shader.Dispatch(kernelNumber, 1024/8, 1024/8, 1);
-        Zoom();
+        if(Input.GetMouseButton(0)) {
+            ZoomToMouse();
+        }
     }
 
     void Zoom()
@@ -69,6 +81,23 @@ public class ShaderHaver : MonoBehaviour
         UpdateBounds();
     }
 
+
+
+    // only zooms if mouse in bounds
+    void ZoomToMouse() 
+    {
+        
+        RaycastHit hit;
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Vector2 worldVector = hit.point;
+            Vector2 complexVector = WorldToComplex(worldVector);
+            zoomTo = complexVector;
+            Zoom();
+        }
+    }
+
     void UpdateBounds()
     {
         float[] bounds = { xmin, xmax, ymin, ymax };
@@ -78,6 +107,16 @@ public class ShaderHaver : MonoBehaviour
     float Lerp(float a, float b, float r)
     {
         return a + (b - a) * r;
+    }
+
+    Vector2 WorldToComplex(Vector2 worldVector)
+    {
+        float re = xmin + (worldVector.x-displayMin.x) * (xmax - xmin) / displayWidth;
+        float im = ymin + (worldVector.y-displayMin.y) * (ymax - ymin) / displayHeight;
+        Debug.Log(worldVector.x);
+        Debug.Log(re);
+        Debug.Log(displayMin.x);
+        return new Vector2(re, im);
     }
 }
 
