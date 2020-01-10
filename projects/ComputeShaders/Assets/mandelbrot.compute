@@ -4,54 +4,33 @@
 // Create a RenderTexture with enableRandomWrite flag and set it
 // with cs.SetTexture
 RWTexture2D<float4> Result;
+// 0 xmin
+// 1 xmax
+// 2 ymin
+// 2 ymax
+RWStructuredBuffer<float> bounds;
+RWStructuredBuffer<float4> colors;
+
 
 
 [numthreads(8,8,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-    // uint itr;
-    // double cx;
-    // double x;
-    // double xnew;
-    // double cy;
-    // double y;
-    // double ynew;
-    // double dsq;
-
-    // uint shade;
-    // // z_n = (z_n-1)^2 + c
-    // // z_1 is zero
-    // // where c is the current location
-    // // color based on the divergence speed of z_n
-    // itr = 0;
-    // cx = 2*(id.x*0.00390625)-1;
-    // cy = 2*(id.y*0.00390625)-1;
-    // x = 0;
-    // y = 0;
-    // dsq = x*x + y*y;
-    // while(itr < 255 && dsq < 4) {
-    //     xnew = x*x - y*y + cx;
-    //     ynew = 2*x*y + cy;
-    //     x = xnew;
-    //     y = ynew;
-
-    //     itr ++;
-    //     dsq = x*x + y*y;
-    // }
-
-    // shade = itr % 2;
     
-    // Result[id.xy] = float4(id.x * 0.00390625, id.y*0.00390625, shade, 0.0);
-
-    float k = 0.00390625;                         // this is simply 1/1024, used to project 1024x1024 texture space to a 2x2 fractal space
+    float k = 0.0009765625;                         // this is simply 1/1024, used to project 1024x1024 texture space to a 2x2 fractal space
     float dx, dy;
     float p, q;
+    float xmin, xmax, ymin, ymax;
     float x, y, xnew, ynew, d = 0;                 // we use double precision variables, to avoid precision limit for a bit longer while going deeper in the fractal
     uint itn = 0;
-    dx = 4;
-    dy = 4;
-    p = -2 + ((int)id.x) * k * dx;
-    q = -2 + ((int)id.y) * k * dy;
+    xmin = bounds[0];
+    xmax = bounds[1];
+    ymin = bounds[2];
+    ymax = bounds[3];
+    dx = xmax-xmin;
+    dy = ymax-ymin;
+    p = xmin + ((int)id.x) * k * dx;
+    q = ymin + ((int)id.y) * k * dy;
     x = p;
     y = q;
     while (itn < 255 && d < 4){                     // the essense of the fractal: in this loop we check how many steps it takes for a point to leave 2x2 fractal area
@@ -65,5 +44,5 @@ void CSMain (uint3 id : SV_DispatchThreadID)
 
     float s = (float) itn / 256.0;
 
-    Result[id.xy] = float4(s, s, s, 0.0); 
+    Result[id.xy] = colors[itn]; 
 }
