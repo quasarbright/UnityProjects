@@ -42,7 +42,6 @@ void CSMain (uint3 id : SV_DispatchThreadID)
         itn++;
     }
 
-    float s = (float) itn / 256.0;
 
     Result[id.xy] = colors[itn]; 
 }

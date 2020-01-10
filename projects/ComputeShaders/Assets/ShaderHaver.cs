@@ -10,7 +10,10 @@ public class ShaderHaver : MonoBehaviour
     [SerializeField]
     public List<Color> colors;
     private Color[] colorsArray;
-    public Vector2 zoomTo;
+    public Vector2 zoomTo = new Vector2(0.4244f, 0.200759f);
+    public float zoomRate = .1f;
+    float xmin, xmax, ymin, ymax;
+    
     public RenderTexture rt;
 
     public Material material;
@@ -28,13 +31,11 @@ public class ShaderHaver : MonoBehaviour
         colorBuffer.SetData(colorsArray);
 
         boundsBuffer = new ComputeBuffer(4, sizeof(float));
-        float xmin, xmax, ymin, ymax;
         xmin = -2;
         xmax = 2;
         ymin = -2;
         ymax = 2;
-        float[] bounds = {xmin, xmax, ymin, ymax};
-        boundsBuffer.SetData(bounds);
+        UpdateBounds();
     }
 
     // Update is called once per frame
@@ -49,6 +50,27 @@ public class ShaderHaver : MonoBehaviour
         shader.SetBuffer(kernelNumber, "bounds", boundsBuffer);
         shader.Dispatch(kernelNumber, 1024/8, 1024/8, 1);
         material.mainTexture = rt;
+        Zoom();
+    }
+
+    void Zoom()
+    {
+        xmin = Lerp(xmin, zoomTo.x, zoomRate);
+        xmax = Lerp(xmax, zoomTo.x, zoomRate);
+        ymin = Lerp(ymin, zoomTo.y, zoomRate);
+        ymax = Lerp(ymax, zoomTo.y, zoomRate);
+        UpdateBounds();
+    }
+
+    void UpdateBounds() 
+    {
+        float[] bounds = { xmin, xmax, ymin, ymax };
+        boundsBuffer.SetData(bounds);
+    }
+
+    float Lerp(float a, float b, float r)
+    {
+        return a + (b - a) * r;
     }
 }
 
