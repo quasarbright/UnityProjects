@@ -13,7 +13,7 @@ public class ShaderHaver : MonoBehaviour
     public List<Color> colors;
     private Color[] colorsArray;
     double[] zoomTo = {0, 0};
-    public float zoomRate = .1f;
+    public float zoomRate = 1f;
     double xmin, xmax, ymin, ymax;
     Vector2 displayMin, displayMax;
     float displayWidth, displayHeight;
@@ -76,7 +76,7 @@ public class ShaderHaver : MonoBehaviour
 
     void Zoom(bool zoomIn)
     {
-        float rate = zoomRate;
+        float rate = zoomRate * Time.deltaTime;
         if(!zoomIn) {
             rate = -rate;
         }
