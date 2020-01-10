@@ -12,9 +12,9 @@ public class ShaderHaver : MonoBehaviour
     [SerializeField]
     public List<Color> colors;
     private Color[] colorsArray;
-    public Vector2 zoomTo = new Vector2(0.4244f, 0.200759f);
+    double[] zoomTo = {0, 0};
     public float zoomRate = .1f;
-    float xmin, xmax, ymin, ymax;
+    double xmin, xmax, ymin, ymax;
     Vector2 displayMin, displayMax;
     float displayWidth, displayHeight;
     int kernelNumber;
@@ -43,12 +43,12 @@ public class ShaderHaver : MonoBehaviour
         colorsArray[colorsArray.Length-1] = new Color(0,0,0);
         colorBuffer.SetData(colorsArray);
 
-        boundsBuffer = new ComputeBuffer(4, sizeof(float));
+        boundsBuffer = new ComputeBuffer(4, sizeof(double));
         float size = 2;
-        xmin = zoomTo.x-size;
-        xmax = zoomTo.x+size;
-        ymin = zoomTo.y-size;
-        ymax = zoomTo.y+size;
+        xmin = zoomTo[0]-size;
+        xmax = zoomTo[0]+size;
+        ymin = zoomTo[1]-size;
+        ymax = zoomTo[1]+size;
         UpdateBounds();
 
 
@@ -68,52 +68,58 @@ public class ShaderHaver : MonoBehaviour
     {
         shader.Dispatch(kernelNumber, 1024/8, 1024/8, 1);
         if(Input.GetMouseButton(0)) {
-            ZoomToMouse();
+            ZoomToMouse(true);
+        } else if(Input.GetMouseButton(1) || Input.GetMouseButton(2)) {
+            ZoomToMouse(false);
         }
     }
 
-    void Zoom()
+    void Zoom(bool zoomIn)
     {
-        xmin = Lerp(xmin, zoomTo.x, zoomRate);
-        xmax = Lerp(xmax, zoomTo.x, zoomRate);
-        ymin = Lerp(ymin, zoomTo.y, zoomRate);
-        ymax = Lerp(ymax, zoomTo.y, zoomRate);
+        float rate = zoomRate;
+        if(!zoomIn) {
+            rate = -rate;
+        }
+        xmin = Lerp(xmin, zoomTo[0], rate);
+        xmax = Lerp(xmax, zoomTo[0], rate);
+        ymin = Lerp(ymin, zoomTo[1], rate);
+        ymax = Lerp(ymax, zoomTo[1], rate);
         UpdateBounds();
     }
 
 
 
     // only zooms if mouse in bounds
-    void ZoomToMouse() 
+    void ZoomToMouse(bool zoomIn) 
     {
-        
         RaycastHit hit;
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
             Vector2 worldVector = hit.point;
-            Vector2 complexVector = WorldToComplex(worldVector);
+            double[] complexVector = WorldToComplex(worldVector);
+
             zoomTo = complexVector;
-            Zoom();
+            Zoom(zoomIn);
         }
     }
 
     void UpdateBounds()
     {
-        float[] bounds = { xmin, xmax, ymin, ymax };
+        double[] bounds = { xmin, xmax, ymin, ymax };
         boundsBuffer.SetData(bounds);
     }
 
-    float Lerp(float a, float b, float r)
+    double Lerp(double a, double b, double r)
     {
         return a + (b - a) * r;
     }
 
-    Vector2 WorldToComplex(Vector2 worldVector)
+    double[] WorldToComplex(Vector2 worldVector)
     {
-        float re = xmin + (worldVector.x-displayMin.x) * (xmax - xmin) / displayWidth;
-        float im = ymin + (worldVector.y-displayMin.y) * (ymax - ymin) / displayHeight;
-        return new Vector2(re, im);
+        double re = xmin + (worldVector.x-displayMin.x) * (xmax - xmin) / displayWidth;
+        double im = ymin + (worldVector.y-displayMin.y) * (ymax - ymin) / displayHeight;
+        return new double[]{re, im};
     }
 }
 

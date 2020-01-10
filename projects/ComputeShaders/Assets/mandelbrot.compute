@@ -8,7 +8,7 @@ RWTexture2D<float4> Result;
 // 1 xmax
 // 2 ymin
 // 2 ymax
-RWStructuredBuffer<float> bounds;
+RWStructuredBuffer<double> bounds;
 RWStructuredBuffer<float4> colors;
 
 
@@ -17,11 +17,11 @@ RWStructuredBuffer<float4> colors;
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
     
-    float k = 0.0009765625;                         // this is simply 1/1024, used to project 1024x1024 texture space to a 2x2 fractal space
-    float dx, dy;
-    float p, q;
-    float xmin, xmax, ymin, ymax;
-    float x, y, xnew, ynew, d = 0;                 // we use double precision variables, to avoid precision limit for a bit longer while going deeper in the fractal
+    double k = 0.0009765625;                         // this is simply 1/1024, used to project 1024x1024 texture space to a 2x2 fractal space
+    double dx, dy;
+    double p, q;
+    double xmin, xmax, ymin, ymax;
+    double x, y, xnew, ynew, d = 0;                 // we use double precision variables, to avoid precision limit for a bit longer while going deeper in the fractal
     uint itn = 0;
     xmin = bounds[0];
     xmax = bounds[1];
