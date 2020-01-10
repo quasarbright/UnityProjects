@@ -113,9 +113,6 @@ public class ShaderHaver : MonoBehaviour
     {
         float re = xmin + (worldVector.x-displayMin.x) * (xmax - xmin) / displayWidth;
         float im = ymin + (worldVector.y-displayMin.y) * (ymax - ymin) / displayHeight;
-        Debug.Log(worldVector.x);
-        Debug.Log(re);
-        Debug.Log(displayMin.x);
         return new Vector2(re, im);
     }
 }
