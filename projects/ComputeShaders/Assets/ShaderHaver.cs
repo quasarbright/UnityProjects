@@ -50,13 +50,13 @@ public class ShaderHaver : MonoBehaviour
         shader.SetTexture(kernelNumber, "Result", rt);
         shader.SetBuffer(kernelNumber, "colors", colorBuffer);
         shader.SetBuffer(kernelNumber, "bounds", boundsBuffer);
+        material.mainTexture = rt;
     }
 
     // Update is called once per frame
     void Update()
     {
         shader.Dispatch(kernelNumber, 1024/8, 1024/8, 1);
-        material.mainTexture = rt;
         Zoom();
     }
 
