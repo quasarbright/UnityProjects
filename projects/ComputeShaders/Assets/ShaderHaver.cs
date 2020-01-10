@@ -13,6 +13,7 @@ public class ShaderHaver : MonoBehaviour
     public Vector2 zoomTo = new Vector2(0.4244f, 0.200759f);
     public float zoomRate = .1f;
     float xmin, xmax, ymin, ymax;
+    int kernelNumber;
     
     public RenderTexture rt;
 
@@ -21,6 +22,8 @@ public class ShaderHaver : MonoBehaviour
     void Start()
     {
         Debug.Log(SystemInfo.supportsComputeShaders);
+
+
         colorsArray = new Color[256];
         colorBuffer = new ComputeBuffer(colorsArray.Length, 4 * 4);
         for(int i = 0; i < colorsArray.Length; i++) {
@@ -31,23 +34,27 @@ public class ShaderHaver : MonoBehaviour
         colorBuffer.SetData(colorsArray);
 
         boundsBuffer = new ComputeBuffer(4, sizeof(float));
-        xmin = -2;
-        xmax = 2;
-        ymin = -2;
-        ymax = 2;
+        float size = 2;
+        xmin = zoomTo.x-2;
+        xmax = zoomTo.x+2;
+        ymin = zoomTo.y-2;
+        ymax = zoomTo.y+2;
         UpdateBounds();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        int kernelNumber = shader.FindKernel("CSMain");
+
+
+        kernelNumber = shader.FindKernel("CSMain");
         rt = new RenderTexture(1024, 1024, 32);
         rt.enableRandomWrite = true;
         rt.Create();
         shader.SetTexture(kernelNumber, "Result", rt);
         shader.SetBuffer(kernelNumber, "colors", colorBuffer);
         shader.SetBuffer(kernelNumber, "bounds", boundsBuffer);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         shader.Dispatch(kernelNumber, 1024/8, 1024/8, 1);
         material.mainTexture = rt;
         Zoom();
@@ -62,7 +69,7 @@ public class ShaderHaver : MonoBehaviour
         UpdateBounds();
     }
 
-    void UpdateBounds() 
+    void UpdateBounds()
     {
         float[] bounds = { xmin, xmax, ymin, ymax };
         boundsBuffer.SetData(bounds);
