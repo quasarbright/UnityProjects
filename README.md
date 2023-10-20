@@ -6,7 +6,7 @@ This is a repo for games/projects I made in unity, but this links to other games
 
 # [JoJo Snake](https://quasarbright.github.io/JoJoSnake/src/index.html)
 
-[![](https://quasarbright.github.io/JoJoSnake/screenshots/jojo-snake.png)](https://quasarbright.github.io/JoJoSnake/src/index.html)
+[![](https://quasarbright.github.io/UnityProjects/screenshots/jojo-snake.png)](https://quasarbright.github.io/JoJoSnake/src/index.html)
 
 This is Snake, but in the theme of a show called "JoJo's Bizarre Adventure". It has a lot of little
 features and easter eggs. You play as Polnareff, one of the characters from the show, and the snake is
