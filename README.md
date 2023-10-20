@@ -1,5 +1,20 @@
-# UnityProjects
-This is a repo for games/projects I made in unity. Here are the browser-runnable webgl builds of my projects:
+# Games
+
+This is a repo for games/projects I made in unity, but this readme links to other games too. These are all playable in the browser.
+
+[Source code for the unity projects](https://github.com/quasarbright/UnityProjects)
+
+# [JoJo Snake](https://quasarbright.github.io/JoJoSnake/src/index.html)
+
+[![](https://quasarbright.github.io/JoJoSnake/screenshots/jojo-snake.png)](https://quasarbright.github.io/JoJoSnake/src/index.html)
+
+This is Snake, but in the theme of a show called "JoJo's Bizarre Adventure". It has a lot of little
+features and easter eggs. You play as Polnareff, one of the characters from the show, and the snake is
+his hair. Instead of fruit, You try to reach the toilet. You also have villains from the show chasing you, trying to hit you, which removes some of your hair. They can also steal the toilet and run away with it. If you get the toilet a few times in a row without getting hit, you summon silver chariot, who kills some enemies for you. And when the main villain, Dio, appears, he can use a special power.
+
+I made this with my friend [Ryan Mitchell](https://github.com/RyanRio) and it was a lot of fun.
+
+This is not a unity project. Its source code is [here](https://github.com/quasarbright/JoJoSnake).
 
 # [UpDown](https://quasarbright.github.io/UpDownPages/)  
 UpDown is a 2D puzzle platformer video game based on switching the direction of gravity. I made it with two other students in a game design course as our final project. The code is private since it was for a school project.
