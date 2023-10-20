@@ -1,6 +1,6 @@
 # Games
 
-This is a repo for games/projects I made in unity, but this readme links to other games too. These are all playable in the browser.
+This is a repo for games/projects I made in unity, but this links to other games too. These are all playable in the browser.
 
 [Source code for the unity projects](https://github.com/quasarbright/UnityProjects)
 
